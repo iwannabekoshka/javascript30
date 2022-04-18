@@ -17,8 +17,7 @@ const rotateHours = (hours) => {
 
   clockHours.style.cssText = `--angle: ${angle}deg`;
 }
-
-setInterval(() => {
+const setClock = () => {
   const now = new Date();
   const seconds = now.getSeconds();
   const minutes = now.getMinutes();
@@ -27,6 +26,10 @@ setInterval(() => {
   rotateSeconds(seconds);
   rotateMinutes(minutes);
   rotateHours(hours);
+}
 
-  console.log(hours, minutes, seconds)
-}, 1000)
+setInterval(() => {
+  setClock();
+}, 1000);
+
+setClock();
