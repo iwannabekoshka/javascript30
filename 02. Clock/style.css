@@ -50,6 +50,9 @@ h1 {
     display: block;
 
     height: 2px;
+
+    transition: 0.05s;
+    transition-timing-function: cubic-bezier(0.08, 2.46, 0.58, 1);
 }
 .clock__seconds {
     background-color: black;
