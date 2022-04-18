@@ -1,0 +1,68 @@
+/* region RESET STYLES */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: monospace;
+
+    padding-top: 50px;
+    background-color: rgba(100, 149, 237, 0.45);
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1200px;
+}
+
+h1 {
+    text-align: center;
+
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+/* endregion RESET STYLES */
+
+:root {
+    --color: orange;
+    --spacing: 10px;
+    --blur: 10px;
+}
+
+input {
+    margin: 0;
+}
+
+.color-primary {
+    color: var(--color);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+.grid__item {
+    display: flex;
+    align-items: center;
+}
+.grid__item label {
+    margin-right: 5px;
+}
+
+.image-wrapper {
+    border: var(--spacing) solid var(--color);
+    filter: blur(var(--blur));
+}
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+}
