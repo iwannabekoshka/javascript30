@@ -24,12 +24,16 @@ const people = [
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
 const arr_1 = inventors.filter(inventor => inventor.year >= 1500 && inventor.year < 1600);
-console.log('1: ', arr_1);
+console.log('1: ');
+console.table(arr_1);
+console.log('/* -------------------- */');
 
 // Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
 const arr_2 = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
-console.log('2: ', arr_2);
+console.log('2: ');
+console.table(arr_2);
+console.log('/* -------------------- */');
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
@@ -40,7 +44,9 @@ const arr_3 = inventors.sort((a, b) => {
     return 1
   }
 });
-console.log('3: ', arr_3);
+console.log('3: ');
+console.table(arr_3);
+console.log('/* -------------------- */');
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
@@ -48,12 +54,15 @@ const sum = inventors.reduce((acc, cur) => {
   return acc + (cur.passed - cur.year);
 }, 0);
 console.log('4: ', sum);
+console.log('/* -------------------- */');
 
 // 5. Sort the inventors by years lived
 const arr_5 = inventors.sort((a, b) => {
   return (a.passed - a.year) - (b.passed - b.year);
 });
-console.log('5: ', arr_5);
+console.log('5: ');
+console.table(arr_5);
+console.log('/* -------------------- */');
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
@@ -100,7 +109,9 @@ const streets = [
     "Boulevard de la Zone"
 ];
 const arr_6 = streets.filter(street => street.includes('de'));
-console.log('6: ', arr_6)
+console.log('6: ');
+console.log('6: ', arr_6);
+console.log('/* -------------------- */');
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
@@ -109,7 +120,9 @@ const arr_7 = people
     return a.split(', ')[0];
   })
   .sort();
-console.log('7: ', arr_7);
+console.log('7: ');
+console.table(arr_7);
+console.log('/* -------------------- */');
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
@@ -123,4 +136,6 @@ const arr_8 = data.reduce((acc, cur) => {
 
   return acc;
 }, {});
-console.log('8: ', arr_8);
+console.log('8: ');
+console.table(arr_8);
+console.log('/* -------------------- */');
