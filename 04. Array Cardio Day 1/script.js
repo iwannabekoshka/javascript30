@@ -110,7 +110,7 @@ const streets = [
 ];
 const arr_6 = streets.filter(street => street.includes('de'));
 console.log('6: ');
-console.log('6: ', arr_6);
+console.table(arr_6);
 console.log('/* -------------------- */');
 
 // 7. sort Exercise
