@@ -1,19 +1,19 @@
 export const getPad = (key) => {
   return `
     <div class="pads__item" data-code="${key.code}">
-      <h3>${key.key}</h3>
+      <kbd>${key.key}</kbd>
       <p>${key.name}</p>
     </div>
   `
 }
-export const padPressHandler = (key, keys, isPressed) => {
+export const padPressHandler = (key, keys, isPressed, audios) => {
   if (!keys.find(k => k.code === key)) return;
 
   const padNode = document.querySelector(`[data-code="${key}"]`);
-  const padObj = keys.find(k => k.code === key);
+  const audio = audios.find(a => a.code === key).audio;
 
   switchPadActiveClass(padNode, isPressed);
-  playSound(isPressed, padObj.name);
+  playSound(isPressed, audio);
 }
 
 const switchPadActiveClass = (pad, isPressed) => {
@@ -23,9 +23,9 @@ const switchPadActiveClass = (pad, isPressed) => {
     pad.classList.remove('active');
   }
 }
-const playSound = (isPressed, padName) => {
-  if (!isPressed) return;
-
-  const beat = new Audio(`./sounds/${padName}.wav`);
-  beat.play();
+const playSound = (isPressed, audio) => {
+  if (isPressed) {
+    audio.currentTime = 0
+    audio.play()
+  }
 }

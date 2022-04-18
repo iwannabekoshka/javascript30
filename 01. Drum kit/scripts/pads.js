@@ -4,8 +4,8 @@ export const pads = document.querySelector('#pads');
 
 export const drawPads = (parent, keys) => {
   keys.forEach(key => {
-    const pad = getPad(key)
+    const pad = getPad(key);
 
-    pads.innerHTML += pad;
+    parent.innerHTML += pad;
   })
 }
