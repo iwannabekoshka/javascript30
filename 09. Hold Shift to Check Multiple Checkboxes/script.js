@@ -41,10 +41,7 @@ let listData = [
   },
 ];
 
-let isShiftPressed = false;
-let firstElement = null;
-let lastElement = null;
-let range = [];
+let lastElementId = null;
 
 const elemList = document.querySelector('#list');
 let elemListItems = document.querySelectorAll('.list-item');
@@ -75,57 +72,58 @@ function drawListItems(listData) {
 
 function changeListItemHandler(event) {
   const id = this.dataset.id;
-  range = [id];
+
   const cb = this.querySelector('input');
   const isChecked = !cb.checked;
 
-  if (isChecked) {
-    if (!isShiftPressed) {
-      firstElement = id
-    }
-    if (isShiftPressed) {
-      lastElement = id
-    }
+  if ((isChecked && event.shiftKey) || (!isChecked && event.ctrlKey)) {
+
   } else {
-    firstElement = lastElement = null
+    lastElementId = id
   }
 
-  if (firstElement && lastElement) {
-    range = [];
-    if (firstElement < lastElement) {
-      for (let i = firstElement; i <= lastElement; i++) {
-        range.push(i.toString());
-      }
-    } else {
-      for (let i = lastElement; i <= firstElement; i++) {
-        range.push(i.toString());
-      }
-    }
-  }
-
+  const inBetweenArr = range(parseInt(lastElementId), parseInt(id));
   listData = listData.map(listItemData => {
-    if (range.includes(listItemData.id)) {
+    if (inBetweenArr.includes(parseInt(listItemData.id))) {
+      if (event.shiftKey) {
+        return {
+          ...listItemData,
+          checked: true
+        }
+      }
+      if (event.ctrlKey) {
+        return {
+          ...listItemData,
+          checked: false
+        }
+      }
+
       return {
         ...listItemData,
-        checked: isChecked
+        checked: !listItemData.checked
       }
-    }
 
+    }
     return listItemData;
   });
 
   drawListItems(listData);
 }
 
-function keydownShiftHandler() {
-  isShiftPressed = true;
-}
-function keyupShiftHandler() {
-  isShiftPressed = false;
+function range(from, to) {
+  let _from, _to;
+
+  const direction = to - from;
+  if (direction > 0) {
+    [_from, _to] = [from, to];
+  } else {
+    [_from, _to] = [to, from];
+  }
+
+  return Array(_to - _from + 1)
+    .fill('')
+    .map((elem, i) => i + _from);
 }
 
 // Init
 drawListItems(listData);
-
-document.addEventListener('keydown', keydownShiftHandler);
-document.addEventListener('keyup', keyupShiftHandler);
