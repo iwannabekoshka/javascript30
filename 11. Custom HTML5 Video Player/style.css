@@ -1,0 +1,128 @@
+/* region RESET STYLES */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: monospace;
+
+    padding-top: 50px;
+    background-color: rgba(100, 149, 237, 0.45);
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1200px;
+}
+
+h1 {
+    text-align: center;
+
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+/* endregion RESET STYLES */
+
+body {
+    background-color: orange;
+}
+
+.video-wrapper {
+    position: relative;
+}
+video {
+    width: 100%;
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 50px 1fr 100px;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "track track track"
+        "play volume step"
+    ;
+
+    background-color: #fff;
+}
+.video-controls-track {
+    grid-area: track;
+
+    position: relative;
+}
+.video-controls-play {
+    grid-area: play;
+}
+.video-controls-volume {
+    grid-area: volume;
+
+    display: flex;
+    align-items: center;
+}
+.video-controls-step {
+    grid-area: step;
+
+    display: flex;
+    align-items: center;
+}
+
+/* Track */
+.video-controls-track {
+    --track-height: 12px;
+
+    height: var(--track-height);
+    background-color: #333;
+
+    border-bottom: 1px solid black;
+}
+.video-controls-track__progress {
+    position: absolute;
+    left: 0;
+    width: 0%;
+    height: calc(var(--track-height) - 1px);
+
+    background-color: red;
+}
+
+/* Play btn */
+.video-controls-play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+.video-controls-play button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: red;
+    border-radius: 999px;
+
+    background-image: url(static/images/play.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.video-controls-play button.stop {
+    background-image: url(static/images/pause.svg);
+}
+
+/* Volume */
+.video-controls-volume input[type="range"] {
+    width: 200px;
+}
