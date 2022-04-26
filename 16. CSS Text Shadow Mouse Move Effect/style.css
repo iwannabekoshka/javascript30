@@ -1,0 +1,48 @@
+/* region RESET STYLES */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: monospace;
+
+    padding-top: 50px;
+    background-color: rgba(100, 149, 237, 0.45);
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1200px;
+}
+
+h1 {
+    text-align: center;
+
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+/* endregion RESET STYLES */
+
+body {
+    background-color: orange;
+}
+
+.hero {
+    padding: 100px 0;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: default;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero h2 {
+    margin: 0;
+    font-size: 48px;
+}
