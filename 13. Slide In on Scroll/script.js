@@ -1,6 +1,6 @@
 const slideInElements = document.querySelectorAll('.slide-in');
 
-const scrollHandler = (event) => {
+function scrollHandler(event) {
   slideInElements.forEach(elem => {
     if (isInViewPort(elem) && !elem.classList.contains('active')) {
       elem.classList.add('active')
