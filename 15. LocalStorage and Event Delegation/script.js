@@ -6,7 +6,7 @@ let todos = [];
 
 const getTodosFromLocalStorage = () => {
   const todosFromLocalStorage = JSON.parse(localStorage.getItem('todos'));
-  return todosFromLocalStorage ? todosFromLocalStorage : [];
+  return todosFromLocalStorage || [];
 }
 
 const saveTodosToLocalStorage = (todos) => {
@@ -15,10 +15,6 @@ const saveTodosToLocalStorage = (todos) => {
 
 const drawTodos = (todos) => {
   list.innerHTML = '';
-
-  if (!todos.length > 0) {
-    list.innerHTML = '<p>No todos. Go add one</p>';
-  }
 
   const items = todos
     .map(todo => {
@@ -35,6 +31,10 @@ const drawTodos = (todos) => {
     .join('');
 
   list.innerHTML = items;
+
+  if (!todos.length > 0) {
+    list.innerHTML = '<p>No todos. Go add one</p>';
+  }
 }
 
 const submitFormHandler = (event) => {
