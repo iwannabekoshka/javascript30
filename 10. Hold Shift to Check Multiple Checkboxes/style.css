@@ -1,0 +1,74 @@
+/* region RESET STYLES */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: monospace;
+
+    padding-top: 50px;
+    background-color: rgba(100, 149, 237, 0.45);
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1200px;
+}
+
+h1 {
+    text-align: center;
+
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+/* endregion RESET STYLES */
+
+body {
+    background-color: orange;
+}
+
+input {
+    margin: 0;
+}
+
+.list {
+    width: 400px;
+    margin: 0 auto;
+    padding: 0;
+
+    border-radius: 5px;
+    box-shadow: 8px 8px 0px darkorange;
+    overflow: hidden;
+
+    list-style: none;
+    user-select: none;
+}
+.list-item {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: stretch;
+
+    background-color: white;
+}
+.list-item:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+}
+.list-item__cb {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    border-right: 1px solid #ccc;
+}
+.list-item__label {
+    padding: 1em;
+}
+.checked {
+    text-decoration: line-through;
+}

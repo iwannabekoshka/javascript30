@@ -1,0 +1,64 @@
+/* region RESET STYLES */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: monospace;
+
+    padding-top: 50px;
+    background-color: rgba(100, 149, 237, 0.45);
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1200px;
+}
+
+h1 {
+    text-align: center;
+
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+/* endregion RESET STYLES */
+
+body {
+    background-color: orange;
+}
+
+h2 {
+    text-align: center;
+}
+
+.h-100vh {
+    height: 100vh;
+}
+
+.kek {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 50px;
+
+    width: 200px;
+    height: 200px;
+
+    background-color: red;
+    color: white;
+}
+.slide-in {
+    opacity: 0;
+    transform: translateX(-30%);
+    transition: .8s ease;
+}
+.slide-in.active {
+    opacity: 1;
+    transform: translateX(0);
+}
