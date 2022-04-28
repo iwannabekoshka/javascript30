@@ -1,0 +1,120 @@
+/* region RESET STYLES */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: monospace;
+
+    padding-top: 50px;
+    background-color: rgba(100, 149, 237, 0.45);
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1200px;
+}
+
+h1 {
+    text-align: center;
+
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+/* endregion RESET STYLES */
+
+body {
+    background-image: url(static/images/cats_bg.webp);
+    background-position: 0 center;
+    background-repeat: repeat;
+
+    animation-name: bgCycle;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes bgCycle {
+    100% {
+        /* 1300 - width of image */
+        background-position: 1300px center;
+    }
+}
+h1 {
+    text-shadow: 2px 2px 0 rgba(0,255,0,.5),
+    -2px -2px 0 rgba(0,255,0,.5),
+    -2px 2px 0 rgba(0,255,0,.5),
+    2px -2px 0 rgba(0,255,0,.5);
+}
+textarea {
+    width: 100%;
+    resize: none;
+
+    margin-bottom: 1em;
+
+    padding: .5em;
+    min-height: 10em;
+
+    border: 2px solid green;
+}
+textarea::placeholder {
+    font-family: inherit;
+}
+textarea:focus {
+    outline: none;
+    box-shadow: 2px 2px 8px rgba(0,255,0,.5);
+}
+select {
+    padding: .5em;
+    width: 100%;
+
+    font-family: inherit;
+
+    background-color: #fff;
+    border: 2px solid green;
+}
+select:focus {
+    outline: none;
+    box-shadow: 2px 2px 8px rgba(0,255,0,.5);
+}
+input {
+    width: 100%;
+}
+button {
+    display: inline-block;
+
+    padding: .5em;
+
+    font-size: 1em;
+    color: green;
+
+    background-color: #fff;
+    border: 2px solid green;
+
+    cursor: pointer;
+}
+button:hover {
+    background-color: green;
+    color: white;
+}
+
+.card {
+    padding: 1em;
+
+    font-size: 18px;
+
+    background-color: #fff;
+    box-shadow: 2px 2px 8px rgba(0,255,0,.5);
+    border: 2px solid green;
+}
+.card h4 {
+    margin: 0;
+    margin-bottom: 1em;
+
+    text-align: center;
+    font-size: 1.5em;
+}
