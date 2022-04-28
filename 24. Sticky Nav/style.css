@@ -1,0 +1,112 @@
+/* region RESET STYLES */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: monospace;
+
+    padding-top: 50px;
+    background-color: rgba(100, 149, 237, 0.45);
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1200px;
+}
+
+h1 {
+    text-align: center;
+
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+/* endregion RESET STYLES */
+
+body {
+    background-image: url(static/images/cats_bg.webp);
+    background-position: 0 center;
+    background-repeat: repeat;
+
+    animation-name: bgCycle;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    padding-top: 0;
+}
+@keyframes bgCycle {
+    100% {
+        /* 1300 - width of image */
+        background-position: 1300px center;
+    }
+}
+h1 {
+    text-shadow: 2px 2px 0 rgba(0,255,0,.5),
+    -2px -2px 0 rgba(0,255,0,.5),
+    -2px 2px 0 rgba(0,255,0,.5),
+    2px -2px 0 rgba(0,255,0,.5);
+}
+
+.nav {
+    position: relative;
+    background-color: hsl(197, 100%, 0%);
+}
+.nav-items {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+}
+.nav-items__item {
+    color: white;
+    font-size: 1rem;
+
+    background-color: inherit;
+
+    transition: .4s ease;
+}
+.nav-items__item:hover {
+    background-color: hsl(197, 100%, 20%);
+}
+.nav-items__item a {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    padding: 1em;
+}
+.nav-items__item.logo {
+    max-width: 0;
+    overflow: hidden;
+
+    background-color: #fff;
+    color: black;
+}
+
+.content {
+    --nav-height: 0px;
+
+    min-height: 100vh;
+    padding-top: calc(50px + var(--nav-height));
+    background-color: hsl(197, 100%, 100%);
+}
+.content p {
+    margin-top: 0;
+}
+
+.nav-sticky .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.nav-sticky .logo {
+    max-width: 500px;
+}
